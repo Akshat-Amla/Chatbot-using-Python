@@ -1,49 +1,61 @@
-# Chatbot Application
+# 🎥 Movie Info Chatbot 🍿
 
 ## Project Description
 
-This is a simple chatbot application built using Python and Streamlit. The chatbot is designed to engage in conversations and provide responses based on predefined patterns and intents. It utilizes natural language processing and machine learning to understand user input and generate appropriate responses.
+This chatbot application helps users find movie information by allowing them to search based on movie initials or keywords. Built using Python and Streamlit, the chatbot filters movie titles from a dataset and displays detailed information about the selected movie.
 
 ## Technologies Used
 
-- **Python 3.x:** The core programming language used for building the application.
-- **Streamlit:** A Python library for creating web applications with minimal effort. Streamlit allows for the development of interactive and user-friendly interfaces.
-
-## Libraries Used
-
-### nltk
-
-The Natural Language Toolkit (nltk) library is used for natural language processing tasks. It aids in tokenization, stemming, and other language-related operations.
-
-### ssl
-
-The Secure Sockets Layer (ssl) library is used to create a secure connection for downloading NLTK data.
-
-### sklearn
-
-The scikit-learn (sklearn) library is employed for machine learning tasks in this project. Specifically, the TfidfVectorizer is used for text vectorization, and LogisticRegression is used for intent classification.
-
-### random
-
-The random library is utilized for randomly selecting responses from predefined intents.
+- **Python 3.x:** The core programming language used for building the chatbot.
+- **Streamlit:** A Python library for creating an interactive web application.
+- **Pandas:** Used for loading and manipulating the dataset.
 
 ## Features
 
-- Simple chatbot with predefined intents and responses.
+- Allows users to input movie initials or keywords.
+- Filters and displays matching movies from a dataset.
+- Displays detailed information about the selected movie, including:
+  - Title
+  - Vote average
+  - Release date
+  - Runtime
+  - Genres
+  - Popularity
+  - Revenue
+  - Production companies & countries
+  - Spoken languages
+  - Tagline, keywords, and more.
 - User-friendly interface built with Streamlit.
-- Utilizes machine learning for intent classification.
-- Provides responses based on user input patterns.
+- Shows a dropdown of filtered movie titles based on the user's input.
 
-## How I Built This
+## How It Works
 
-### Intent Definition
+1. **Dataset Loading**: The application loads the "TMDB_movie_dataset.csv" which contains a list of movies and their associated details.
+  
+2. **Filtering Movies**: 
+   - When a user enters movie initials or keywords in the search box, the chatbot filters through the dataset for matching movie titles.
+   - The filtering is case-insensitive and allows partial matches.
 
-The chatbot's behavior is defined through a set of intents. Each intent consists of patterns (user input), a tag, and corresponding responses. Intents cover greetings, goodbyes, expressions of gratitude, and specific topics like weather, budgeting, and credit scores.
+3. **Movie Selection**:
+   - If matching movie titles are found, a dropdown is displayed for users to select one of the filtered movies.
+   - Once a movie is selected, its details are displayed in an organized layout.
 
-### Machine Learning Model
+4. **Movie Details**:
+   - The chatbot displays movie details such as vote average, release date, runtime, genres, popularity, revenue, production companies, and more in two columns for better readability.
+   - A footer with additional information such as tagline and keywords is displayed.
 
-A TfidfVectorizer is used to convert user input patterns into numerical features. A Logistic Regression classifier is trained on the vectorized data to predict the intent (tag) of a given user input.
+5. **Footer**: The app concludes with a friendly footer message made with love.
 
-### Streamlit Interface
+## Libraries Used
 
-Streamlit is employed to create a user-friendly web interface. The application allows users to type messages, receive responses, and engage in a chat-like interaction with the bot.
+- **Pandas**: For reading the CSV dataset and manipulating data.
+- **Streamlit**: For building the user interface and handling input/output.
+- **Emoji**: Added in the interface to enhance user engagement.
+
+## How to Run
+
+1. Clone the repository and navigate to the project directory.
+2. Install the required libraries using `pip install pandas streamlit`.
+3. Run the application with the following command:
+   ```bash
+   streamlit run app.py
